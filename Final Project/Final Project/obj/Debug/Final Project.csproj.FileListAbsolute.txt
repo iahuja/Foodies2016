@@ -30,3 +30,36 @@ C:\Users\ishant\documents\visual studio 2015\Projects\Final Project\Final Projec
 C:\Users\ishant\documents\visual studio 2015\Projects\Final Project\Final Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\ishant\documents\visual studio 2015\Projects\Final Project\Final Project\obj\Debug\Final Project.dll
 C:\Users\ishant\documents\visual studio 2015\Projects\Final Project\Final Project\obj\Debug\Final Project.pdb
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\ApplicationInsights.config
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\csc.exe
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\vbc.exe
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\VBCSCompiler.exe
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Final Project.dll.config
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Final Project.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Final Project.pdb
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.Web.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.ApplicationInsights.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.Web.xml
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.ApplicationInsights.xml
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\obj\Debug\Final Project.csprojResolveAssemblyReference.cache
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\obj\Debug\Final Project.dll
+C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\obj\Debug\Final Project.pdb

@@ -2,7 +2,7 @@
 
 
 <asp:Content ContentPlaceHolderId="title" runat="server">
-    Foodies-About
+   About
     </asp:Content>
 
 <asp:Content ContentPlaceHolderId="nav" runat="server">

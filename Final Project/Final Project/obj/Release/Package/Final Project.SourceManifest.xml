@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\ishant\documents\visual studio 2015\Projects\Final Project\Final Project\obj\Release\Package\PackageTmp" />
-  <setAcl path="C:\Users\ishant\documents\visual studio 2015\Projects\Final Project\Final Project\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\Users\ishant\documents\visual studio 2015\Projects\Final Project\Final Project\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\ishant\Source\Repos\Foodies2016\Final Project\Final Project\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

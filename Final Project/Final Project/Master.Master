@@ -24,6 +24,98 @@
     <asp:ContentPlaceHolder id="head" runat="server">
 </asp:ContentPlaceHolder>
 
+            <link rel="stylesheet" href="scripts/animate.css"/>
+    <script src="scripts/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
+
+   
+ 
+
+    <script>
+  window.fbAsyncInit = function () {
+         FB.init({
+             appId: '573858946116959', // Set YOUR APP ID
+             channelUrl: '//' + window.location.hostname + '/channel',// Channel File
+             status: true, // check login status
+             cookie: true, // enable cookies to allow the server to access the session
+             xfbml: true  // parse XFBML
+         });
+
+         function getUserInfo() {
+             FB.api('/me', function (response) {
+
+                 document.getElementById("client").innerHTML = response.name.trim();
+                 
+             });
+         }
+
+
+         FB.getLoginStatus(function (response) {
+             if (response.status === 'connected') {
+                 // the user is logged in and has authenticated your
+                 // app, and response.authResponse supplies
+                 // the user's ID, a valid access token, a signed
+                 // request, and the time the access token 
+                 // and signed request each expire
+                
+                 getUserInfo();
+                 getPhoto();
+                 var uid = response.authResponse.userID;
+                 var accessToken = response.authResponse.accessToken;
+             } else if (response.status === 'not_authorized') {
+                 // the user is logged in to Facebook, 
+                 // but has not authenticated your app
+                  window.location.href = "login.aspx";
+             } else {
+                 window.location.href = "login.aspx";
+                // window.location.href = "http://ishant.azurewebsites.net/D";
+             }
+         });
+
+
+         FB.Event.subscribe('auth.authResponseChange', function (response) {
+             if (response.status === 'connected') {
+                 
+             }
+             else if (response.status === 'not_authorized') {
+                
+             } else {
+                 
+             }
+         });
+
+     };
+
+
+     function getPhoto() {
+         FB.api('/me/picture?type=normal', function (response) {
+
+       
+             document.getElementById("my").src = response.data.url;
+         
+         });
+
+     }
+     function Logout() {
+
+         FB.logout(function () {  window.location.href = "login.aspx"; });
+        
+     }
+
+     // Load the SDK asynchronously
+     (function (d) {
+         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+         if (d.getElementById(id)) { return; }
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         ref.parentNode.insertBefore(js, ref);
+     }(document));
+
+ 
+</script>
+
           
   <style>
 .navbar-inverse { background-color: #FCFDFF}

@@ -1,2 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters />
+<parameters>
+  <parameter name="FoodiesDatabase-Web.config Connection String" description="FoodiesDatabase Connection String used in web.config by the application to access the database." defaultValue="Data Source=foodies.database.windows.net;Initial Catalog=Foodies;User ID=foodiesAdmin;password=FoodiesProject2016" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ishant\\Source\\Repos\\Foodies2016\\Final\ Project\\Final\ Project\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='FoodiesDatabase']/@connectionString" />
+  </parameter>
+</parameters>

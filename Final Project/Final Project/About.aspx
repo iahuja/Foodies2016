@@ -9,7 +9,7 @@
 
 <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="index.aspx"><b>Home</b></a></li>
+        <li ><a href="default"><b>Home</b></a></li>
         <li class="active"> <a href="#"><b>About</b></a></li>
            
         <li><a href="#"><b>Gallery</b></a></li>

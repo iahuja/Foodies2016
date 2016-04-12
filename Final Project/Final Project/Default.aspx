@@ -71,7 +71,7 @@
         <li class="active"><a href="#"><b>Home</b></a></li>
         <li><a href="about.aspx"><b>About</b></a></li>
            
-        <li><a href="#"><b>Gallery</b></a></li>
+        <li><a href="Partners.aspx"><b>Partners</b></a></li>
         <li><a href="#"><b>Contact</b></a></li>
       </ul>
        <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="2.5s" >

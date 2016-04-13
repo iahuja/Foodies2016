@@ -159,6 +159,5 @@ C:\Users\ishant\Source\Repos\Foodies20162\Final Project\Final Project\bin\Micros
 C:\Users\ishant\Source\Repos\Foodies20162\Final Project\Final Project\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\ishant\Source\Repos\Foodies20162\Final Project\Final Project\bin\Microsoft.ApplicationInsights.xml
 C:\Users\ishant\Source\Repos\Foodies20162\Final Project\Final Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ishant\Source\Repos\Foodies20162\Final Project\Final Project\obj\Debug\Final Project.csprojResolveAssemblyReference.cache
 C:\Users\ishant\Source\Repos\Foodies20162\Final Project\Final Project\obj\Debug\Final Project.dll
 C:\Users\ishant\Source\Repos\Foodies20162\Final Project\Final Project\obj\Debug\Final Project.pdb

@@ -124,9 +124,28 @@
 
         
     <div class="wow bounceInUp" data-wow-duration="1s">
-<div class="container-fluid bg-3 text-center">   
+ <div class="container-fluid bg-3 text-center">
   <h3>Trending</h3><br>
-  <div class="row">
+
+    <%
+        for (int i = 0; i < restaurant.Count; i++)
+        {
+            if ( i%4==0)
+            {
+                Response.Write("<div class="+'"'+"row"+'"'+">");
+            }
+            Response.Write("<div class="+'"'+"col-sm-3"+'"'+"><p>"+restaurant[i].restaurantName+i+"</p>");
+            Response.Write(" <img  src="+'"'+"http://placehold.it/150x80?text=IMAGE"+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' alt='Image'></div>");
+            if (i>0 && i%4==3)
+            {
+                
+                    Response.Write("</div><br/>");
+                
+            }
+        }
+         %>
+    </div> </div>
+ <!-- <div class="row">
     <div id="voice2" class="col-sm-3">
       <p>Some text..</p>
       <img  src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
@@ -144,6 +163,7 @@
       <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
     </div>
   </div>
+   
 </div><br>
 
 <div class="container-fluid bg-3 text-center">    
@@ -188,5 +208,6 @@
   </div>
 </div><br><br>
 </div>
+  -->
  </asp:Content>
 

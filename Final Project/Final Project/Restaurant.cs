@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class Restaurant
+    public class Restaurant
     {
         public string restaurantName { get; set; }
         public string location { get; set; }

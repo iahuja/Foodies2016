@@ -9,9 +9,14 @@ namespace Final_Project
 {
     public partial class Partners : System.Web.UI.Page
     {
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+        
 
         }
+
+
     }
 }

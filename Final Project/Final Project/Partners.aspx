@@ -14,7 +14,7 @@
         <li class="active"><a href="#"><b>Partners</b></a></li>
         <li><a href="#"><b>Contact</b></a></li>
       </ul>
-    <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="2.5s" >
+    <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="1.5s" >
            <li>
           <img id="my" src="http://placehold.it/150x80?text=IMAGE"  style="border-radius:50%; height:40px; padding-top:10px; " class="img-responsive"  alt="Image">
           </li>
@@ -31,4 +31,7 @@
       </ul>
     </div>
  </asp:Content>
+<asp:Content ContentPlaceHolderID="main" runat="server">
 
+
+</asp:Content>

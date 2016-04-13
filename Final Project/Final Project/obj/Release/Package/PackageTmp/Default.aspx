@@ -26,7 +26,28 @@
     
     </style>
  
+    <!-- This script is tracking user click and displaying information on the BootStrap modal -->
+    <script>
+     $(document).ready(function () {
+            $(".restaurantsImage").click(function () {
+                var hidden = "hidden" + this.id;
+                var value = document.getElementById(hidden).value;
+                var info = value.split("|");
+                setModalContent(info);
+                $("#myModal").modal();
+            })
+        });;
+       
+     function setModalContent(info)
+     {
+         document.getElementById("modaltitle").innerHTML = info[0];
+         document.getElementById("modalBody").innerHTML = info[1];
+     }
 
+    </script>
+        
+        
+     
 
    
 
@@ -37,7 +58,7 @@
             if ($w.scrollTop() < 180) {
                  $('#voice2').css({ "border-bottom": "2px solid blue" });
 
-                //this method will autohide the navbar on scrooling down
+                //this method will autohide the navbar on scrolling down
                 $(".navbar").autoHidingNavbar();
                  
             } else {
@@ -71,7 +92,7 @@
         <li class="active"><a href="#"><b>Home</b></a></li>
         <li><a href="about.aspx"><b>About</b></a></li>
            
-        <li><a href="#"><b>Gallery</b></a></li>
+        <li><a href="Partners.aspx"><b>Partners</b></a></li>
         <li><a href="#"><b>Contact</b></a></li>
       </ul>
        <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="2.5s" >
@@ -114,7 +135,7 @@
  <div id="searchdiv" class="wow  fadeIn" data-wow-duration="1s" data-wow-delay="1.5s" >
 <asp:TextBox id="search" CssClass="form-control input-lg" runat="server"  style="text-align:center" 
     autopostback="true" placeholder="Search Food"></asp:TextBox>
-     
+      
  </div>
                </form>
 
@@ -124,69 +145,51 @@
 
         
     <div class="wow bounceInUp" data-wow-duration="1s">
-<div class="container-fluid bg-3 text-center">   
-  <h3>Trending</h3><br>
-  <div class="row">
-    <div id="voice2" class="col-sm-3">
-      <p>Some text..</p>
-      <img  src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div><br>
+ <div class="container-fluid bg-3 text-center">
+  <h1>Trending</h1><br>
+     
+     <!-- this code is looping through the list and displayng dynamic data
+         -->
+    <%
+        for (int i = 0; i < restaurant.Count; i++)
+        {
+            if ( i%4==0)
+            {
+                Response.Write("<div class="+'"'+"row"+'"'+">");
+            }
+            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i].restaurantName+"</h4>");
+            Response.Write(" <img  src="+'"'+"http://placehold.it/150x80?text=IMAGE"+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' alt='Image'></div>");
+            Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+""+restaurant[i].restaurantName+"|"+restaurant[i].location +"|"+restaurant[i].contact +'"'+" />");
 
-<div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div  class="col-sm-3">
-      <p">Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div><br>
+           
+            if (i>0 && i%4==3)
+            {
 
-    <div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div  class="col-sm-3">
-      <p">Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                Response.Write("</div><br/>");
+
+            }
+        }
+         %>
+    </div> </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 id="modaltitle" class="modal-title">Restaurant Name</h4>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
+
   </div>
-</div><br><br>
 </div>
  </asp:Content>
 

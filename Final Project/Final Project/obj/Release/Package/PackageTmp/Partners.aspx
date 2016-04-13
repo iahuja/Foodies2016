@@ -1,8 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Final_Project.About" MasterPageFile="~/Master.Master" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Partners.aspx.cs" Inherits="Final_Project.Partners" MasterPageFile="~/Master.Master"  %>
 
 <asp:Content ContentPlaceHolderId="title" runat="server">
-   About
+   Partners
     </asp:Content>
 
 <asp:Content ContentPlaceHolderId="nav" runat="server">
@@ -10,12 +9,12 @@
 <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li ><a href="default.aspx"><b>Home</b></a></li>
-        <li class="active"> <a href="#"><b>About</b></a></li>
+        <li> <a href="About.aspx"><b>About</b></a></li>
            
-        <li><a href="Partners.aspx"><b>Partners</b></a></li>
+        <li class="active"><a href="#"><b>Partners</b></a></li>
         <li><a href="#"><b>Contact</b></a></li>
       </ul>
-    <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="2.5s" >
+    <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="1.5s" >
            <li>
           <img id="my" src="http://placehold.it/150x80?text=IMAGE"  style="border-radius:50%; height:40px; padding-top:10px; " class="img-responsive"  alt="Image">
           </li>
@@ -32,3 +31,7 @@
       </ul>
     </div>
  </asp:Content>
+<asp:Content ContentPlaceHolderID="main" runat="server">
+
+
+</asp:Content>

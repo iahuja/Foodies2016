@@ -26,7 +26,28 @@
     
     </style>
  
+    <!-- This script is tracking user click and displaying information on the BootStrap modal -->
+    <script>
+     $(document).ready(function () {
+            $(".restaurantsImage").click(function () {
+                var hidden = "hidden" + this.id;
+                var value = document.getElementById(hidden).value;
+                var info = value.split("|");
+                setModalContent(info);
+                $("#myModal").modal();
+            })
+        });;
+       
+     function setModalContent(info)
+     {
+         document.getElementById("modaltitle").innerHTML = info[0];
+         document.getElementById("modalBody").innerHTML = info[1];
+     }
 
+    </script>
+        
+        
+     
 
    
 
@@ -114,7 +135,7 @@
  <div id="searchdiv" class="wow  fadeIn" data-wow-duration="1s" data-wow-delay="1.5s" >
 <asp:TextBox id="search" CssClass="form-control input-lg" runat="server"  style="text-align:center" 
     autopostback="true" placeholder="Search Food"></asp:TextBox>
-     
+      
  </div>
                </form>
 
@@ -125,8 +146,10 @@
         
     <div class="wow bounceInUp" data-wow-duration="1s">
  <div class="container-fluid bg-3 text-center">
-  <h3>Trending</h3><br>
-
+  <h1>Trending</h1><br>
+     
+     <!-- this code is looping through the list and displayng dynamic data
+         -->
     <%
         for (int i = 0; i < restaurant.Count; i++)
         {
@@ -134,80 +157,39 @@
             {
                 Response.Write("<div class="+'"'+"row"+'"'+">");
             }
-            Response.Write("<div class="+'"'+"col-sm-3"+'"'+"><p>"+restaurant[i].restaurantName+i+"</p>");
+            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i].restaurantName+"</h4>");
             Response.Write(" <img  src="+'"'+"http://placehold.it/150x80?text=IMAGE"+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' alt='Image'></div>");
+            Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+""+restaurant[i].restaurantName+"|"+restaurant[i].location +"|"+restaurant[i].contact +'"'+" />");
+
+           
             if (i>0 && i%4==3)
             {
-                
-                    Response.Write("</div><br/>");
-                
+
+                Response.Write("</div><br/>");
+
             }
         }
          %>
     </div> </div>
- <!-- <div class="row">
-    <div id="voice2" class="col-sm-3">
-      <p>Some text..</p>
-      <img  src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-   
-</div><br>
 
-<div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div  class="col-sm-3">
-      <p">Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div><br>
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-    <div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div  class="col-sm-3">
-      <p">Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 id="modaltitle" class="modal-title">Restaurant Name</h4>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
+
   </div>
-</div><br><br>
 </div>
-  -->
  </asp:Content>
 

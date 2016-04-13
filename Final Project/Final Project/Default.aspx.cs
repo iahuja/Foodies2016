@@ -11,6 +11,7 @@ namespace Final_Project
     public partial class HomePage : System.Web.UI.Page
     {
         protected List<Restaurant> restaurant = new List <Restaurant>();
+        protected int id=0;
 
         string cs = ConnectionString.getConnection();
 

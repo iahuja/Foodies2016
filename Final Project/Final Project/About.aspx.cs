@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,12 @@ namespace Final_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            NameValueCollection queryString = Request.QueryString;
 
+            if (queryString != null)
+            {
+                Response.Write(queryString["name"]);
+            }
         }
     }
 }

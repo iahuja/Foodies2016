@@ -17,10 +17,31 @@ namespace Final_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getDishes();
+
+            var arg = Request.Form["__EVENTTARGET"]; //'this will be empty on your first page request, but if the user click a div it will cause a postback to server, so this event will be fired again and will contain the div ID.
+
+             if (arg != null)
+            {
+                string divID = (string)arg;
+                redirect(divID);
+
+
+            }
+           getRestaurant();
         }
 
-        protected void getDishes()
+
+        protected void redirect(string id)
+        {
+
+
+            string restID = Server.UrlEncode(id);
+            Server.Transfer("~/About.aspx?name=" + restID);
+
+        }
+
+
+        protected void getRestaurant()
         {
 
             string query = "Select RName, RLocation, RContact from Restaurant";
@@ -53,10 +74,10 @@ namespace Final_Project
 
         }
 
-
-        protected void getRestaurant()
+        
+        protected void getDishes( )
         {
-
+            /*
             string query = "Select RName, RLocation, RContact from Restaurant";
 
             using (SqlConnection conn = new SqlConnection(cs))
@@ -77,7 +98,8 @@ namespace Final_Project
                 }
 
             }
-
+            */
+            Response.Redirect("~/Partners.aspx");
         }
     }
 }

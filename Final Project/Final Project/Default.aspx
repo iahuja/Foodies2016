@@ -26,7 +26,14 @@
     
     </style>
  
-    <!-- This script is tracking user click and displaying information on the BootStrap modal -->
+    <script type="text/javascript">
+function EditDiv(s){
+var id = $(s).attr("value");
+__doPostBack(id,id);
+}
+</script>
+
+    <!-- This script is tracking user click and displaying information on the BootStrap modal 
     <script>
      $(document).ready(function () {
             $(".restaurantsImage").click(function () {
@@ -46,7 +53,7 @@
 
     </script>
         
-        
+        -->
      
 
    
@@ -145,6 +152,7 @@
 
         
     <div class="wow bounceInUp" data-wow-duration="1s">
+     
  <div class="container-fluid bg-3 text-center">
   <h1>Trending</h1><br>
      
@@ -158,7 +166,7 @@
                 Response.Write("<div class="+'"'+"row"+'"'+">");
             }
             Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i].restaurantName+"</h4>");
-            Response.Write(" <img  src="+'"'+"http://placehold.it/150x80?text=IMAGE"+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' alt='Image'></div>");
+            Response.Write(" <img  src="+'"'+"http://placehold.it/150x80?text=IMAGE"+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' runtat="+'"'+"server"+'"'+" value="+'"'+restaurant[i].restaurantName+'"'+"onClick="+'"'+"EditDiv(this)"+'"'+ "></div>");
             Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+""+restaurant[i].restaurantName+"|"+restaurant[i].location +"|"+restaurant[i].contact +'"'+" />");
 
            

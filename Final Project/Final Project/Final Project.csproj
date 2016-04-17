@@ -95,6 +95,108 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Images\Dishes\alooGobi.jpg" />
+    <Content Include="Images\Dishes\AlooParatha.jpg" />
+    <Content Include="Images\Dishes\amrati.jpg" />
+    <Content Include="Images\Dishes\amritsariNaan.jpg" />
+    <Content Include="Images\Dishes\Bacon&amp;CheeseJalapenoWhopper.png" />
+    <Content Include="Images\Dishes\baconDoubleCheeseBurger.png" />
+    <Content Include="Images\Dishes\BagelBELT.jpg" />
+    <Content Include="Images\Dishes\baiganBharta.jpg" />
+    <Content Include="Images\Dishes\balushahi.jpg" />
+    <Content Include="Images\Dishes\besanLadoo.jpg" />
+    <Content Include="Images\Dishes\bigKingSandwich.jpg" />
+    <Content Include="Images\Dishes\braisedPork.jpg" />
+    <Content Include="Images\Dishes\Bruschetta.jpg" />
+    <Content Include="Images\Dishes\butterChicken.JPG" />
+    <Content Include="Images\Dishes\CapreseSalad.jpg" />
+    <Content Include="Images\Dishes\chanaBhatura.jpg" />
+    <Content Include="Images\Dishes\chanaMasala.jpg" />
+    <Content Include="Images\Dishes\Chicken&amp;BlackBeanSalad.jpg" />
+    <Content Include="Images\Dishes\chickenBLTSandwich.jpg" />
+    <Content Include="Images\Dishes\chickenChowmein.jpg" />
+    <Content Include="Images\Dishes\chickenFriedRice.jpg" />
+    <Content Include="Images\Dishes\chickenFries.jpg" />
+    <Content Include="Images\Dishes\chickenNaan.jpg" />
+    <Content Include="Images\Dishes\ChickenNoodleSoup.jpg" />
+    <Content Include="Images\Dishes\chickenNuggets.jpg" />
+    <Content Include="Images\Dishes\ChickenSanteFeOnAncientGrainFlatbread.JPG" />
+    <Content Include="Images\Dishes\chickenTikka.jpg" />
+    <Content Include="Images\Dishes\chickenTikkaMasala.jpg" />
+    <Content Include="Images\Dishes\chilliChicken.jpg" />
+    <Content Include="Images\Dishes\dalMakhani.jpg" />
+    <Content Include="Images\Dishes\Egg&amp;CheeseEnglish Muffin.jpg" />
+    <Content Include="Images\Dishes\eggAndCheddar.jpg" />
+    <Content Include="Images\Dishes\EggSaladSandwiches.jpg" />
+    <Content Include="Images\Dishes\FishPakora.jpg" />
+    <Content Include="Images\Dishes\flatbreadBreakfastPanini.jpg" />
+    <Content Include="Images\Dishes\Foccacia.jpg" />
+    <Content Include="Images\Dishes\gardenSideSalad.jpg" />
+    <Content Include="Images\Dishes\GarlicNaan.gif" />
+    <Content Include="Images\Dishes\grilledBreakfastWraps.png" />
+    <Content Include="Images\Dishes\grilledPaniniSandwich.jpg" />
+    <Content Include="Images\Dishes\guotie.jpg" />
+    <Content Include="Images\Dishes\handcraftedSandwiched.jpg" />
+    <Content Include="Images\Dishes\HeartyVeggie&amp;BrownRiceSalad.jpg" />
+    <Content Include="Images\Dishes\HotAndSourSoup.jpg" />
+    <Content Include="Images\Dishes\hotBowls.jpg" />
+    <Content Include="Images\Dishes\HotBreakfastSandwich.jpg" />
+    <Content Include="Images\Dishes\jalebi.jpg" />
+    <Content Include="Images\Dishes\kajuKatri.jpg" />
+    <Content Include="Images\Dishes\lachaParantha.jpg" />
+    <Content Include="Images\Dishes\madrasChicken.jpg" />
+    <Content Include="Images\Dishes\mangoLassi.jpg" />
+    <Content Include="Images\Dishes\mangoShake.jpg" />
+    <Content Include="Images\Dishes\masalaTea.jpg" />
+    <Content Include="Images\Dishes\milkCake.JPG" />
+    <Content Include="Images\Dishes\mintChickenTikka.jpg" />
+    <Content Include="Images\Dishes\motichoorLadoo.jpg" />
+    <Content Include="Images\Dishes\MushroomRisotto.jpg" />
+    <Content Include="Images\Dishes\OnionKulcha.jpg" />
+    <Content Include="Images\Dishes\palakPaneer.jpg" />
+    <Content Include="Images\Dishes\paneerPakora.jpg" />
+    <Content Include="Images\Dishes\paneerTikka.jpg" />
+    <Content Include="Images\Dishes\paneerTikkaMasala.jpg" />
+    <Content Include="Images\Dishes\panzanella.jpg" />
+    <Content Include="Images\Dishes\PastaCarbonara.jpg" />
+    <Content Include="Images\Dishes\plainGajrela.jpg" />
+    <Content Include="Images\Dishes\plainGulabJamun.jpg" />
+    <Content Include="Images\Dishes\poutine.jpg" />
+    <Content Include="Images\Dishes\raita.jpg" />
+    <Content Include="Images\Dishes\ReducedFatBaconStyleTurkey.jpg" />
+    <Content Include="Images\Dishes\roastedTomatoMozzarellaPanini.jpg" />
+    <Content Include="Images\Dishes\roti.jpg" />
+    <Content Include="Images\Dishes\saltLassi.jpg" />
+    <Content Include="Images\Dishes\sausageEnglishMuffin.jpg" />
+    <Content Include="Images\Dishes\shahiPaneer.jpg" />
+    <Content Include="Images\Dishes\soup.jpeg" />
+    <Content Include="Images\Dishes\spicyBigFish.jpg" />
+    <Content Include="Images\Dishes\Spinach&amp;FetaWrap.JPG" />
+    <Content Include="Images\Dishes\stirFry.jpg" />
+    <Content Include="Images\Dishes\sweetLassi.jpg" />
+    <Content Include="Images\Dishes\tandooriChicken.jpg" />
+    <Content Include="Images\Dishes\tandooriFish.jpg" />
+    <Content Include="Images\Dishes\tea.jpg" />
+    <Content Include="Images\Dishes\teriyakiChicken.jpg" />
+    <Content Include="Images\Dishes\turkeyPrestoPanini.jpg" />
+    <Content Include="Images\Dishes\ultimateBaconCheeseBurger.png" />
+    <Content Include="Images\Dishes\vegetableFriedRice.jpg" />
+    <Content Include="Images\Dishes\vegetableMushroomChowmein.jpg" />
+    <Content Include="Images\Dishes\veggieKorma.jpg" />
+    <Content Include="Images\Dishes\wholeGrainOatmeal.jpg" />
+    <Content Include="Images\Dishes\whopperSandwich.jpg" />
+    <Content Include="Images\Dishes\Zhajiangmian.jpg" />
+    <Content Include="Images\Restaurants\burgurking.jpg" />
+    <Content Include="Images\Restaurants\chawlas.jpg" />
+    <Content Include="Images\Restaurants\indiastaste.jpg" />
+    <Content Include="Images\Restaurants\indiansweetmaster.jpg" />
+    <Content Include="Images\Restaurants\kingtandoori.jpeg" />
+    <Content Include="Images\Restaurants\mandarin.jpg" />
+    <Content Include="Images\Restaurants\montanas.jpg" />
+    <Content Include="Images\Restaurants\newChinagarden.jpg" />
+    <Content Include="Images\Restaurants\STARBUCKS.jpg" />
+    <Content Include="Images\Restaurants\TimHortons.png" />
+    <Content Include="Images\Restaurants\wokoffame.jpg" />
     <Content Include="Images\start-screen.jpg" />
     <Content Include="login.aspx" />
     <Content Include="Images\five.jpg" />
@@ -114,6 +216,7 @@
     </Content>
     <Content Include="Master.Master" />
     <Content Include="Partners.aspx" />
+    <Content Include="RestaurantMenu.aspx" />
     <Content Include="scripts\animate.css" />
     <Content Include="scripts\wow.js" />
     <Content Include="scripts\wow.min.js" />
@@ -162,6 +265,7 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs" />
     <Compile Include="Partners.aspx.cs">
       <DependentUpon>Partners.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +275,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant.cs" />
+    <Compile Include="RestaurantMenu.aspx.cs">
+      <DependentUpon>RestaurantMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantMenu.aspx.designer.cs">
+      <DependentUpon>RestaurantMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Trending.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />

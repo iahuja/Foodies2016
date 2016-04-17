@@ -12,6 +12,7 @@ namespace Final_Project
     {
 
         protected List<String> restaurant = new List<String>();
+        protected List<String> restaurantImage = new List<String>();
         protected int id = 0;
 
         string cs = ConnectionString.getConnection();
@@ -37,7 +38,7 @@ namespace Final_Project
 
 
             string restID = Server.UrlEncode(id);
-            Server.Transfer("~/About.aspx?name=" + restID);
+            Server.Transfer("~/RestaurantMenu.aspx?name=" + restID);
 
         }
 
@@ -45,7 +46,7 @@ namespace Final_Project
         protected void getRestaurant()
         {
 
-            string query = "Select distinct RName from Restaurant";
+            string query = "Select distinct RName,Image from Restaurant";
 
             using (SqlConnection conn = new SqlConnection(cs))
             {
@@ -58,7 +59,9 @@ namespace Final_Project
                 {
                      
                     string restaurantName = reader["RName"].ToString();
-                   
+                    string restaurantPic = reader["Image"].ToString();
+
+                    restaurantImage.Add(restaurantPic);
                     restaurant.Add(restaurantName);
                 }
 

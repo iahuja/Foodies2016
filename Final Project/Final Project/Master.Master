@@ -138,19 +138,55 @@
 .navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #FFFFFF}
 .navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #999999}
 .navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
-
- 
-        #search{margin: 0 auto;width:40%}
-        #search:hover {width:50%;}
-        #search:focus {width:50%;}
-
   </style>
+           
+
+     <style>
+.loader {
+ border: 8px solid lightBlue;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+   
+ 
+<script>
+var ld=(document.all);
+var ns4=document.layers;
+var ns6=document.getElementById&&!document.all;
+var ie4=document.all;
+function init()
+{
+    if (ns4) { ld.visibility = "hidden"; alert("here1"); }
+else if (ns6 || ie4) 
+{
+    $('.loader').css({
+        'display': 'none',
+    });
+
+   
+}
+}
+</script>
+</head>
 
   
-</head>
-  
-<body>
-  
+<body onLoad="init()">
+  <div class="loader" style="position:absolute; left:50%; text-align:center; top:300px;"></div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header ">

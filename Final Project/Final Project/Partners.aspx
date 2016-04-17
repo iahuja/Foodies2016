@@ -14,14 +14,19 @@
        <style>
 
           
-        img:hover {
+        #image:hover {
         -webkit-transform:scale(1.2);
         transform:scale(1.2);
                      }
-        img {
+        #image {
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
-                }
+     height: 200px;
+      width:100%;
+    overflow: hidden;
+  border:1px solid #021a40;
+}
+               
     
     </style>
  
@@ -75,12 +80,13 @@ __doPostBack(id,id);
 
 
 <asp:Content ContentPlaceHolderId="nav" runat="server">
-<div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="default.aspx"><b>Home</b></a></li>
         <li><a href="about.aspx"><b>About</b></a></li>
            
-        <li class="active"><a href="#"><b>Partners</b></a></li>
+
+        <li class="active"><a href="Partners.aspx"><b>Partners</b></a></li>
         <li><a href="#"><b>Contact</b></a></li>
       </ul>
        <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="2.5s" >
@@ -108,25 +114,22 @@ __doPostBack(id,id);
     <div class="wow  rotateInDownLeft" data-wow-duration="1.2s" data-wow-delay=".5s">
         <h1 id="logo" style="font-family:'Comic Sans MS', cursive, sans-serif; color:whitesmoke;">Partners</h1> 
     </div>
-                  
-        <style>
-#searchdiv{
-  width: 50%;
-  margin:auto;
-  -webkit-transition: width .35s ease-in-out;
-  transition: width .35s ease-in-out;
-}
- 
-       </style>
+               
   </div>
    
 </div>
+    
+           <form id="s" runat="server"> 
+<asp:TextBox  runat="server"  style="display:none" 
+    autopostback="true" placeholder="Search Food"></asp:TextBox>
+                     </form>
+
 
         
     <div class="wow bounceInUp" data-wow-duration="1s">
      
  <div class="container-fluid bg-3 text-center">
-  <h1>Trending</h1><br>
+  <h1>We are Together 2 Serve u Better</h1><br>
      
      <!-- this code is looping through the list and displayng dynamic data
          -->
@@ -137,8 +140,8 @@ __doPostBack(id,id);
             {
                 Response.Write("<div class="+'"'+"row"+'"'+">");
             }
-            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i]+i+"</h4>");
-            Response.Write(" <img  src="+'"'+"http://placehold.it/150x80?text=IMAGE"+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' runtat="+'"'+"server"+'"'+" value="+'"'+restaurant[i]+'"'+"onClick="+'"'+"EditDiv(this)"+'"'+ "></div>");
+            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i]+"</h4>");
+            Response.Write(" <img id='image' src="+'"'+"Images/Restaurants/"+restaurantImage[i]+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' runtat="+'"'+"server"+'"'+" value="+'"'+restaurant[i]+'"'+"onClick="+'"'+"EditDiv(this)"+'"'+ "></div>");
             
            
             if (i>0 && i%4==3)
@@ -151,23 +154,5 @@ __doPostBack(id,id);
          %>
     </div> </div>
 
-    <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 id="modaltitle" class="modal-title">Restaurant Name</h4>
-      </div>
-      <div class="modal-body" id="modalBody">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
  </asp:Content>

@@ -14,18 +14,28 @@
 
        <style>
 
+           body {
+    background-color: whitesmoke;
+
+}
           
-        img:hover {
+      #image:hover {
         -webkit-transform:scale(1.2);
         transform:scale(1.2);
                      }
-        img {
+
+        #image {
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
-                }
+     height: 200px;
+      width:100%;
+    overflow: hidden;
+  border:1px solid #021a40;
+}
     
     </style>
- 
+
+
     <!-- This script is tracking user click and displaying information on the BootStrap modal -->
     <script>
      $(document).ready(function () {
@@ -87,6 +97,8 @@
 
 
 <asp:Content ContentPlaceHolderId="nav" runat="server">
+    
+    
 <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#"><b>Home</b></a></li>
@@ -117,7 +129,7 @@
  
 <div class="jumbotron" style="background-image:url(images/start-screen.jpg);height:250px;">
   <div class="container text-center">
-    <div class="wow  rotateInDownLeft" data-wow-duration="1.2s" data-wow-delay=".5s">
+    <div class="wow fadeIn">
         <h1 id="logo" style="font-family:'Comic Sans MS', cursive, sans-serif; color:whitesmoke;">Foodies</h1> 
     </div>
                   
@@ -132,7 +144,7 @@
        </style>
       
            <form id="s" runat="server"> 
- <div id="searchdiv" class="wow  fadeIn" data-wow-duration="1s" data-wow-delay="1.5s" >
+ <div id="searchdiv" class="wow  fadeIn" >
 <asp:TextBox id="search" CssClass="form-control input-lg" runat="server"  style="text-align:center" 
     autopostback="true" placeholder="Search Food"></asp:TextBox>
       
@@ -145,6 +157,7 @@
 
         
     <div class="wow bounceInUp" data-wow-duration="1s">
+     
  <div class="container-fluid bg-3 text-center">
   <h1>Trending</h1><br>
      
@@ -157,9 +170,9 @@
             {
                 Response.Write("<div class="+'"'+"row"+'"'+">");
             }
-            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i].restaurantName+"</h4>");
-            Response.Write(" <img  src="+'"'+"http://placehold.it/150x80?text=IMAGE"+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' alt='Image'></div>");
-            Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+""+restaurant[i].restaurantName+"|"+restaurant[i].location +"|"+restaurant[i].contact +'"'+" />");
+            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i].dish+"</h4>");
+            Response.Write(" <img id='image' src="+'"'+"Images/Dishes/"+restaurant[i].image+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' runtat="+'"'+"server"+'"'+"></div>");
+            Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+""+restaurant[i].restaurant+"|"+restaurant[i].location +"|"+restaurant[i].contact +'"'+" />");
 
            
             if (i>0 && i%4==3)

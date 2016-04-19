@@ -13,6 +13,16 @@
               </script>
 
        <style>
+           table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
 
            body {
     background-color: whitesmoke;
@@ -35,10 +45,18 @@
     
     </style>
 
+       <script type="text/javascript">
+function passData(s){
+var id = $(s).attr("value");
+__doPostBack(id,id);
+}
+</script>
+
 
     <!-- This script is tracking user click and displaying information on the BootStrap modal -->
     <script>
-     $(document).ready(function () {
+        
+      $(document).ready(function () {
             $(".restaurantsImage").click(function () {
                 var hidden = "hidden" + this.id;
                 var value = document.getElementById(hidden).value;
@@ -50,8 +68,53 @@
        
      function setModalContent(info)
      {
-         document.getElementById("modaltitle").innerHTML = info[0];
-         document.getElementById("modalBody").innerHTML = info[1];
+         document.getElementById("modalDish").innerHTML = info[0];
+         document.getElementById("modaltitle").innerHTML = info[1];
+         document.getElementById("modalAddress").innerHTML = info[2];
+         document.getElementById("modalContact").innerHTML = info[3];
+         document.getElementById("modalPrice").innerHTML = info[4];
+         document.getElementById("reviewButton").value = info[5];
+         
+     }
+        
+     $(document).ready(function () {
+         $(".restaurantsImage").click(function () {
+             var hidden = "reviews" + this.id;
+             document.getElementById("modalReview").innerHTML = "<h5>No Reviews Yet</h5><h6>Be The First One To Add</h6>";
+             var value = document.getElementById(hidden).value;
+             var info = value.split("^");
+             if (info.length > 2) {
+                 document.getElementById("badge").innerHTML = info.length / 3;
+                 setModalreviews(info);
+                 $("#myModal").modal();
+             }
+             else { alert("ss"); }
+         })
+     });;
+
+     function setModalreviews(info) {
+
+         var list="";
+         for (var key in info)
+         {
+             if(key%3==0)
+             {
+                 list += "<tr>";
+                 list += "<td><img id='imaeg' src="+'"'+info[key]+'"'+" style='border-radius:50%; height:80px; padding-top:10px; ' class='img-responsive'  alt='Image'/></td>";
+             }
+             else
+             {
+             list += "<td>" + info[key] + "</td>";
+              }
+
+            if (key > 0 && key % 3 == 2)
+            {
+                list += "</tr>";
+            }
+           
+         }
+     
+        document.getElementById("modalReview").innerHTML = list;
      }
 
     </script>
@@ -126,7 +189,7 @@
  </asp:Content>
 
 <asp:Content ContentPlaceHolderId="main" runat="server">
- 
+ <form id="s" runat="server"> 
 <div class="jumbotron" style="background-image:url(images/start-screen.jpg);height:250px;">
   <div class="container text-center">
     <div class="wow fadeIn">
@@ -143,13 +206,13 @@
  
        </style>
       
-           <form id="s" runat="server"> 
+           
  <div id="searchdiv" class="wow  fadeIn" >
 <asp:TextBox id="search" CssClass="form-control input-lg" runat="server"  style="text-align:center" 
     autopostback="true" placeholder="Search Food"></asp:TextBox>
       
  </div>
-               </form>
+               
 
   </div>
    
@@ -170,11 +233,38 @@
             {
                 Response.Write("<div class="+'"'+"row"+'"'+">");
             }
+           
             Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i].dish+"</h4>");
             Response.Write(" <img id='image' src="+'"'+"Images/Dishes/"+restaurant[i].image+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' runtat="+'"'+"server"+'"'+"></div>");
-            Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+""+restaurant[i].restaurant+"|"+restaurant[i].location +"|"+restaurant[i].contact +'"'+" />");
+            Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+restaurant[i].dish+"|"+
+                restaurant[i].restaurant+"|"+restaurant[i].location +"|"+restaurant[i].contact+
+                "|"+restaurant[i].Price+'"'+" />");
+
+            int co = 0;
+            co= restaurant[i].revList.Count;
+            if (co > 0)
+            {
+                Response.Write("<input type=" + '"' + "hidden" + '"' + " id=" + '"' + "reviews" + i + '"' + "value=" + '"');
 
            
+            for (int k=0; k < co;k++ )
+            {
+
+                if (k != co)
+                {
+                    if (k != 0)
+                    {
+                        Response.Write("^");
+                    }
+                    Response.Write(restaurant[i].revList[k]);
+                }
+
+            }
+
+            Response.Write('"'+" />");
+             }
+
+
             if (i>0 && i%4==3)
             {
 
@@ -194,9 +284,21 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 id="modaltitle" class="modal-title">Restaurant Name</h4>
       </div>
-      <div class="modal-body" id="modalBody">
-        <p>Some text in the modal.</p>
-      </div>
+      <div class="modal-body">
+          <h6><span id="modalDish"></span> $<span id="modalPrice"></span></h6>
+          <h6>Restaurant Location:</h6>
+       <div id="modalAddress"><p>Address</p></div>
+          <h6>Contact: <span id="modalContact"></span></h6>
+            <button type="button" class="btn btn-primary" id="reviewButton" data-toggle="collapse" data-target="#review" value="">See Review <span id="badge" class="badge">0</span></button>
+                  <div id="review" class="collapse">
+                       <table id="modalReview"></table> 
+                      <label for="comment">Review:</label>
+                      
+                      <asp:TextBox class="form-control" TextMode="multiline" ID="TextBox1"
+                          AutoPostBack="true" runat="server" Rows="2" ></asp:TextBox>
+                       
+                      </div>
+           </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
@@ -204,5 +306,6 @@
 
   </div>
 </div>
+       </form>
  </asp:Content>
 

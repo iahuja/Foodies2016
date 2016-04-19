@@ -217,6 +217,7 @@
     <Content Include="Master.Master" />
     <Content Include="Partners.aspx" />
     <Content Include="RestaurantMenu.aspx" />
+    <Content Include="Review.aspx" />
     <Content Include="scripts\animate.css" />
     <Content Include="scripts\wow.js" />
     <Content Include="scripts\wow.min.js" />
@@ -282,6 +283,14 @@
     <Compile Include="RestaurantMenu.aspx.designer.cs">
       <DependentUpon>RestaurantMenu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Review.aspx.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Review.aspx.designer.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="review.cs" />
     <Compile Include="Trending.cs" />
   </ItemGroup>
   <ItemGroup>

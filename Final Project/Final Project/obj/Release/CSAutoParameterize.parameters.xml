@@ -3,4 +3,7 @@
   <parameter name="FoodiesDatabase-Web.config Connection String" description="FoodiesDatabase Connection String used in web.config by the application to access the database." defaultValue="Data Source=foodies.database.windows.net;Initial Catalog=Foodies;User ID=foodiesAdmin;password=FoodiesProject2016" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\ishant\\Source\\Repos\\Foodies20162\\Final\ Project\\Final\ Project\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='FoodiesDatabase']/@connectionString" />
   </parameter>
+  <parameter name="RestDrop-Web.config Connection String" description="RestDrop Connection String used in web.config by the application to access the database." defaultValue="Data Source=foodies.database.windows.net;Initial Catalog=Foodies;User ID=foodiesAdmin;Password=FoodiesProject2016" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ishant\\Source\\Repos\\Foodies20162\\Final\ Project\\Final\ Project\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RestDrop']/@connectionString" />
+  </parameter>
 </parameters>

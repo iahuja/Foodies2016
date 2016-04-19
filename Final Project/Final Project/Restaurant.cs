@@ -13,5 +13,10 @@ namespace Final_Project
         public string contact { get; set; }
         public string dish { get; set; }
         public string image { get; set; }
+        public string Price { get; set; }
+        public string dishID { get; set; }
+        public string restauranID { get; set; }
+        public List<String> revList { get;  set; }
+
     }
 }

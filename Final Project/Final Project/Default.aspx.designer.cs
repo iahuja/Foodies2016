@@ -22,6 +22,42 @@ namespace Final_Project {
         protected global::System.Web.UI.HtmlControls.HtmlForm s;
         
         /// <summary>
+        /// SessionUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField SessionUserName;
+        
+        /// <summary>
+        /// SessionUserImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField SessionUserImage;
+        
+        /// <summary>
+        /// R_IDForReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField R_IDForReview;
+        
+        /// <summary>
+        /// D_IDForReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField D_IDForReview;
+        
+        /// <summary>
         /// search control.
         /// </summary>
         /// <remarks>

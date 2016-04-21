@@ -47,6 +47,7 @@
              FB.api('/me', function (response) {
 
                  document.getElementById("client").innerHTML = response.name.trim();
+                 document.getElementsByClassName(".client").value = response.name.trim();
                  
              });
          }
@@ -94,6 +95,8 @@
 
        
              document.getElementById("my").src = response.data.url;
+
+              
          
          });
 
@@ -177,15 +180,19 @@ else if (ns6 || ie4)
     $('.loader').css({
         'display': 'none',
     });
-
+    
+  
    
 }
+   
 }
 </script>
+             
 </head>
 
-  
+   
 <body onLoad="init()">
+    <input type="hidden" class="client"/>
   <div class="loader" style="position:absolute; left:50%; text-align:center; top:300px;"></div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">

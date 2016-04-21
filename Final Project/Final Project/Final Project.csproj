@@ -219,6 +219,8 @@
     <Content Include="RestaurantMenu.aspx" />
     <Content Include="Review.aspx" />
     <Content Include="scripts\animate.css" />
+    <Content Include="scripts\toast.css" />
+    <Content Include="scripts\toaster.js" />
     <Content Include="scripts\wow.js" />
     <Content Include="scripts\wow.min.js" />
     <None Include="Properties\PublishProfiles\ishant %282%29.pubxml" />
@@ -267,6 +269,7 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs" />
+    <Compile Include="Partner.cs" />
     <Compile Include="Partners.aspx.cs">
       <DependentUpon>Partners.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

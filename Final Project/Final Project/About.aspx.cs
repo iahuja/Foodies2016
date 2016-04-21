@@ -12,12 +12,7 @@ namespace Final_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            NameValueCollection queryString = Request.QueryString;
-
-            if (queryString != null)
-            {
-                Response.Write(queryString["name"]);
-            }
+            Response.Write("this"+(String)Session["UserImage"]+"ios");
         }
     }
 }

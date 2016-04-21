@@ -129,7 +129,7 @@ __doPostBack(id,id);
     <div class="wow bounceInUp" data-wow-duration="1s">
      
  <div class="container-fluid bg-3 text-center">
-  <h1>We are Together 2 Serve u Better</h1><br>
+  <h1>We Are Together Two Serve You Better</h1><br>
      
      <!-- this code is looping through the list and displayng dynamic data
          -->

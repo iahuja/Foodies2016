@@ -14,44 +14,64 @@ namespace Final_Project
         protected int id = 0;
 
         string cs = ConnectionString.getConnection();
-        string searchText;
+        string searchText,sessionSearch;
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-            var arg = Request.Form["__EVENTTARGET"];
-            string data = (string)arg;
 
-            if (data != null)
+            if (!IsPostBack)
             {
-                if (data.Contains(','))
+                if (string.IsNullOrEmpty(Session["searchText"] as string))
                 {
-                   
-                    redirect(data);
+                    Session["searchText"] = "empty";
                 }
             }
-         
-            searchText = search.Text.Trim();
 
-            if (searchText.Trim().Equals(""))
+            
+            searchResults();
+
+        }
+
+
+        private void searchResults()
+        {
+            if (search.Text.Trim().ToUpper().Equals("TRENDING"))
             {
+                Session["searchText"] = "empty";
                 getTrending();
+                return;
             }
             else
-            { 
-                 getSearchDishes(searchText);
+            {
+                sessionSearch = Session["searchText"].ToString();
+            }
+
+            if (!sessionSearch.Equals("empty"))
+            {
+                if (search.Text.Trim().Equals(""))
+                {
+                    getSearchDishes(sessionSearch);
+                }
+                else
+                {
+                    getSearchDishes(search.Text.Trim());
+                }
+            }
+            else
+            {
+                searchText = search.Text.Trim();
+
+                if (searchText.Trim().Equals(""))
+                {
+                    getTrending();
+                }
+                else
+                {
+
+                    getSearchDishes(searchText);
+                }
             }
         }
-
-
-        protected void redirect(string data)
-        {
-            string[] value = data.Split(',');
-
-            string restID = Server.UrlEncode(value[0]);
-            string DishID = Server.UrlEncode(value[1]);
-            Response.Redirect("~/Review.aspx?restaurant=" + restID+"&dish="+DishID);
-
-        }
+ 
 
 
         protected void getSearchDishes(string search)
@@ -99,6 +119,13 @@ namespace Final_Project
                     restaurant.Add(res);
                 }
 
+                int count = restaurant.Count;
+                if (count == 0)
+                {
+                    Session["searchRecord"] = "Oops we missed " + search;
+                }
+                else { Session["searchRecord"] = "Showing (" + restaurant.Count + ") results for " + search; }
+
 
             }
 
@@ -107,8 +134,8 @@ namespace Final_Project
 
         protected void getTrending()
         {
-
-            string query = "select top 12 Reviews.R_ID, Reviews.D_ID, Price,  RName, DishName, RLocation, RestaurantMenu.Image as Image, RContact from " +
+            Session["searchRecord"] = "Trending this week";
+           string query = "select top 12 Reviews.R_ID, Reviews.D_ID, Price,  RName, DishName, RLocation, RestaurantMenu.Image as Image, RContact from " +
                 " Reviews inner join Restaurant on Restaurant.R_ID = Reviews.R_ID " +
                 " inner join Dishes on Dishes.D_ID = Reviews.D_ID"+
                 " inner join RestaurantMenu on RestaurantMenu.D_ID = Reviews.D_ID group by " +
@@ -194,12 +221,51 @@ namespace Final_Project
                     reviewLsit.Add("empty");
                    
                 }
-
+                
                return reviewLsit;
 
             }
         }
+        
+        protected void ReviewClicked(object sender, EventArgs e)
+        {
+            string rid = R_IDForReview.Value;
+            string did = D_IDForReview.Value;
+            string review = reviewText.Text;
+            string userName = SessionUserName.Value;
+            string userImage = SessionUserImage.Value;
 
-      
+
+            string insertQuery = "Insert into Reviews(R_ID,D_ID,Review,UserName,Image) "+
+                " Values(@R_ID,@D_ID,@review,@name,@image)";
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand(insertQuery, conn);
+
+                cmd.Parameters.AddWithValue("@R_ID", rid);
+                cmd.Parameters.AddWithValue("@D_ID", did);
+                cmd.Parameters.AddWithValue("@review", review);
+                cmd.Parameters.AddWithValue("@name", userName);
+                cmd.Parameters.AddWithValue("@image", userImage);
+
+                conn.Open();
+
+                int result = (int)cmd.ExecuteNonQuery();
+
+
+            }
+
+              Session["ReviewAdded"] = "true";
+            if (!search.Text.Trim().Equals(""))
+            {
+                if (!search.Text.Trim().ToUpper().Equals("TRENDING"))
+                {
+                    Session["searchText"] = search.Text.Trim().ToString();
+                }
+            }
+              Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
+
+
+        }
     }
 }

@@ -6,6 +6,9 @@
 
 <asp:Content ContentPlaceHolderId="head" runat="server">
 
+    <link rel="stylesheet" href="scripts/toast.css"/>
+    <script src="scripts/toaster.js"></script>
+
     <link rel="stylesheet" href="scripts/animate.css"/>
     <script src="scripts/wow.min.js"></script>
               <script>
@@ -57,14 +60,55 @@ __doPostBack(id,id);
     <script>
         
       $(document).ready(function () {
-            $(".restaurantsImage").click(function () {
-                var hidden = "hidden" + this.id;
-                var value = document.getElementById(hidden).value;
-                var info = value.split("|");
-                setModalContent(info);
-                $("#myModal").modal();
-            })
-        });;
+          $(".restaurantsImage").click(function () {
+              var hidden = "hidden" + this.id;
+              var value = document.getElementById(hidden).value;
+              var info = value.split("|");
+              setModalContent(info);
+              $("#myModal").modal();
+              getSessionUserInfo();
+          });
+           
+          <%
+
+        string check = (string)Session["ReviewAdded"];
+
+        if (check == "true")
+        {
+            Response.Write("toast();");
+        }
+
+        Session["ReviewAdded"] = "false";
+         %>
+        
+
+          function toast()
+          {
+               
+
+              Command: toastr["success"]("Thanks For The Review", "Awesome")
+
+              toastr.options = {
+                  "closeButton": true,
+                  "debug": false,
+                  "newestOnTop": false,
+                  "progressBar": true,
+                  "positionClass": "toast-top-center",
+                  "preventDuplicates": false,
+                  "showDuration": "300",
+                  "hideDuration": "1000",
+                  "timeOut": "5000",
+                  "extendedTimeOut": "1000",
+                  "showEasing": "swing",
+                  "hideEasing": "linear",
+                  "showMethod": "fadeIn",
+                  "hideMethod": "fadeOut"
+              }
+              }
+          
+
+
+      });
        
      function setModalContent(info)
      {
@@ -74,7 +118,8 @@ __doPostBack(id,id);
          document.getElementById("modalContact").innerHTML = info[3];
          document.getElementById("modalPrice").innerHTML = info[4];
          document.getElementById("reviewButton").value = info[5];
-         
+         document.getElementById("<%= R_IDForReview.ClientID %>").value=info[5];
+         document.getElementById("<%= D_IDForReview.ClientID %>").value = info[6];
      }
         
      $(document).ready(function () {
@@ -82,6 +127,7 @@ __doPostBack(id,id);
              var hidden = "reviews" + this.id;
              document.getElementById("modalReview").innerHTML = "<h5>No Reviews Yet</h5><h6>Be The First One To Add</h6>";
              var value = document.getElementById(hidden).value;
+            
              var info = value.split("^");
              if (info.length > 2) {
                  document.getElementById("badge").innerHTML = info.length / 3;
@@ -89,8 +135,12 @@ __doPostBack(id,id);
                  $("#myModal").modal();
              }
             
+             
          })
      });;
+
+
+       
 
      function setModalreviews(info) {
 
@@ -148,8 +198,12 @@ __doPostBack(id,id);
             }, 800);
 
         }
+        function getSessionUserInfo()
+        {
 
-       
+            document.getElementById("<%= SessionUserImage.ClientID %>").value = document.getElementById("my").src;
+            document.getElementById("<%= SessionUserName.ClientID %>").value = document.getElementsByClassName(".client").value;
+        }
     </script>
     
 
@@ -170,7 +224,7 @@ __doPostBack(id,id);
         <li><a href="Partners.aspx"><b>Partners</b></a></li>
         <li><a href="#"><b>Contact</b></a></li>
       </ul>
-       <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="2.5s" >
+         <ul class="nav navbar-nav navbar-right wow bounceInRight" data-wow-duration="1s" data-wow-delay="2.5s" >
            <li>
           <img id="my" src="http://placehold.it/150x80?text=IMAGE"  style="border-radius:50%; height:40px; padding-top:10px; " class="img-responsive"  alt="Image">
           </li>
@@ -190,6 +244,12 @@ __doPostBack(id,id);
 
 <asp:Content ContentPlaceHolderId="main" runat="server">
  <form id="s" runat="server"> 
+     <asp:HiddenField ID="SessionUserName"  value="sessionUsername" runat="server" />
+      <asp:HiddenField ID="SessionUserImage"  value="sessionUsername" runat="server" />
+     <asp:HiddenField ID="R_IDForReview"  value="R_IDForReview" runat="server" />
+      <asp:HiddenField ID="D_IDForReview"  value="D_IDForReview" runat="server" />
+      
+
 <div class="jumbotron" style="background-image:url(images/start-screen.jpg);height:250px;">
   <div class="container text-center">
     <div class="wow fadeIn">
@@ -203,7 +263,12 @@ __doPostBack(id,id);
   -webkit-transition: width .35s ease-in-out;
   transition: width .35s ease-in-out;
 }
- 
+ .restaurantsImage { 
+   position: relative; 
+
+}
+
+
        </style>
       
            
@@ -222,8 +287,8 @@ __doPostBack(id,id);
     <div class="wow bounceInUp" data-wow-duration="1s">
      
  <div class="container-fluid bg-3 text-center">
-  <h1>Trending</h1><br>
-     
+  <h1><%=Session["searchRecord"]%></h1><br>
+
      <!-- this code is looping through the list and displayng dynamic data
          -->
     <%
@@ -234,11 +299,11 @@ __doPostBack(id,id);
                 Response.Write("<div class="+'"'+"row"+'"'+">");
             }
            
-            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4>"+restaurant[i].dish+"</h4>");
+            Response.Write("<div class="+'"'+"col-sm-3 restaurantsImage"+'"'+" id="+'"'+""+i+""+'"'+" ><h4 id='imagetext'>"+restaurant[i].dish+"</h4>");
             Response.Write(" <img id='image' src="+'"'+"Images/Dishes/"+restaurant[i].image+'"'+" class="+'"'+"img-responsive"+'"'+" style='width:100%' runtat="+'"'+"server"+'"'+"></div>");
             Response.Write("<input type="+'"'+"hidden"+'"'+" id="+'"'+"hidden"+i+'"'+"value="+'"'+restaurant[i].dish+"|"+
                 restaurant[i].restaurant+"|"+restaurant[i].location +"|"+restaurant[i].contact+
-                "|"+restaurant[i].Price+'"'+" />");
+                "|"+restaurant[i].Price+"|"+restaurant[i].restauranID+"|"+restaurant[i].dishID+'"'+" />");
 
             int co = 0;
             co= restaurant[i].revList.Count;
@@ -290,17 +355,17 @@ __doPostBack(id,id);
           <h6>Restaurant Location:</h6>
        <div id="modalAddress"><p>Address</p></div>
           <h6>Contact: <span id="modalContact"></span></h6>
-            <button type="button" class="btn btn-primary" id="reviewButton" data-toggle="collapse" data-target="#review" value="">See Review <span id="badge" class="badge">0</span></button>
+            <button type="button" class="btn btn-primary" id="reviewButton" data-toggle="collapse" data-target="#review" value="">Review(s) <span id="badge" class="badge">0</span></button>
                   <div id="review" class="collapse">
-                       <table id="modalReview"></table> 
+                      <div class="scroll"> <table id="modalReview"></table> </div>
                       <label for="comment">Review:</label>
                       
                       <asp:TextBox class="form-control" TextMode="multiline" ID="reviewText"
-                          AutoPostBack="true" runat="server" Rows="2"></asp:TextBox>
+                          runat="server" Rows="2"></asp:TextBox>
                       <br/>
-
+                      
       <asp:Button runat="server" Text="Add Review" class="btn btn-primary"
-          id="AddReview" data-toggle="collapse" data-target="#review"  />
+          id="AddReview" value="value" data-toggle="collapse" data-target="#review" OnClick="ReviewClicked"  />
                 </div>
                             
                      
@@ -309,6 +374,19 @@ __doPostBack(id,id);
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+
+      <style>
+          div.scroll {
+    width: auto;
+     height: 200px;
+    overflow-y: scroll;
+}
+          #modalReview{
+              text-align:center;
+              align-content:center;
+          }
+
+      </style>
 
   </div>
 </div>
